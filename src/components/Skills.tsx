@@ -1,6 +1,10 @@
+import { useSelector } from 'react-redux';
+import { currentTheme } from '../stores/theme/themeSlice';
+
 type SkillCategory = { title: string; skills: string[]; icons?: string[] };
 
 function Icons(props: { icons?: string[] }) {
+	const selectTheme = useSelector(currentTheme);
 	const icons = props.icons || [];
 	return (
 		icons.length > 0 && (
@@ -11,7 +15,7 @@ function Icons(props: { icons?: string[] }) {
 						alt={icon}
 						key={icon}
 						title={icon}
-						src={`https://skillicons.dev/icons?theme=light&i=${icon}`}
+						src={`https://skillicons.dev/icons?theme=${selectTheme}&i=${icon}`}
 					/>
 				))}
 			</div>

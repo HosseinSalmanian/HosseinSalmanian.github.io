@@ -1,17 +1,23 @@
-import { useState } from 'react';
+import { useEffect } from 'react';
 import { NavLink } from 'react-router';
+import {
+	toggle,
+	currentTheme,
+	previousTheme,
+} from '../stores/theme/themeSlice';
+import { useAppDispatch } from '../stores/store';
+import { useSelector } from 'react-redux';
 
 function Header() {
-	const [theme, setTheme] = useState('light');
+	const theme = useSelector(currentTheme);
+	const prevTheme = useSelector(previousTheme);
 
-	function toggleTheme(): void {
-		setTheme((currnetTheme) => {
-			const theme = currnetTheme === 'dark' ? 'light' : 'dark';
-			document.getElementsByTagName('body')[0].classList.remove(currnetTheme);
-			document.getElementsByTagName('body')[0].classList.add(theme);
-			return theme;
-		});
-	}
+	const dispatch = useAppDispatch();
+
+	useEffect(() => {
+		document.getElementsByTagName('body')[0].classList.remove(prevTheme);
+		document.getElementsByTagName('body')[0].classList.add(theme);
+	}, [theme, prevTheme]);
 
 	return (
 		<>
@@ -37,7 +43,7 @@ function Header() {
 					</div>
 					<button
 						className="h-10 w-10 cursor-pointer rounded-full bg-orange-500 text-white transition-colors duration-200 ease-in-out hover:bg-orange-400"
-						onClick={toggleTheme}
+						onClick={() => dispatch(toggle())}
 						aria-label="Toggle dark mode"
 					>
 						{theme === 'dark' ? '☼' : '☾'}
