@@ -19,28 +19,38 @@ function Header() {
 		document.getElementsByTagName('body')[0].classList.add(theme);
 	}, [theme, prevTheme]);
 
+	const activeLinkClass = (e: { isActive: boolean }) => {
+		return e.isActive ? 'underline' : '';
+	};
+
 	return (
 		<>
 			<header className="sticky top-0 z-10 m-5 flex flex-col bg-white dark:bg-gray-950">
 				<div className="mb-1 flex items-center justify-between p-4">
-					<div className="m-auto">
-						<nav>
-							<ul className="flex *:text-orange-500 *:hover:text-orange-400 md:justify-between md:text-2xl">
-								<li className="mx-1 underline">
-									<NavLink to="/">About me</NavLink>
-								</li>
-								<li className="mx-1 underline">
-									<NavLink to="skills">Skills</NavLink>
-								</li>
-								<li className="mx-1 underline">
-									<NavLink to="experiences">Experiences</NavLink>
-								</li>
-								<li className="mx-1 underline">
-									<NavLink to="education">Education</NavLink>
-								</li>
-							</ul>
-						</nav>
-					</div>
+					<nav className="m-auto">
+						<ul className="flex *:text-orange-500 *:hover:text-orange-400 md:justify-between md:text-2xl">
+							<li className="mx-1">
+								<NavLink to="/" className={activeLinkClass}>
+									About me
+								</NavLink>
+							</li>
+							<li className="mx-1">
+								<NavLink to="skills" className={activeLinkClass}>
+									Skills
+								</NavLink>
+							</li>
+							<li className="mx-1">
+								<NavLink to="experiences" className={activeLinkClass}>
+									Experiences
+								</NavLink>
+							</li>
+							<li className="mx-1">
+								<NavLink to="education" className={activeLinkClass}>
+									Education
+								</NavLink>
+							</li>
+						</ul>
+					</nav>
 					<button
 						className="h-10 w-10 cursor-pointer rounded-full bg-orange-500 text-white transition-colors duration-200 ease-in-out hover:bg-orange-400"
 						onClick={() => dispatch(toggle())}
