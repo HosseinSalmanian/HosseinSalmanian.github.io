@@ -1,15 +1,10 @@
-import profilePicture from '../assets/profile-picture.jpg';
+import ProfilePicture from './ProfilePicture';
 
 function Summary() {
 	return (
 		<>
 			<section className="flex flex-col items-stretch gap-1 md:flex-row">
-				<img
-					src={profilePicture}
-					className="mx-auto my-4 max-w-50 rounded object-scale-down md:m-0 md:max-w-85 landscape:object-scale-down landscape:md:object-cover dark:invert"
-					aria-label="profile picture"
-					alt="profile picture"
-				/>
+				<ProfilePicture />
 				<div className="rounded-lg bg-white px-6 py-8 shadow-xl ring ring-gray-900/5 md:ml-4 dark:bg-gray-800">
 					<h3 className="mt-5 font-medium tracking-tight text-orange-400">
 						Professional Summary
