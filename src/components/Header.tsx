@@ -21,7 +21,7 @@ function Header() {
 
 	return (
 		<>
-			<header className="sticky top-0 z-10 -m-5 flex flex-col bg-white dark:bg-gray-950">
+			<header className="sticky top-0 z-10 m-5 flex flex-col bg-white dark:bg-gray-950">
 				<div className="mb-1 flex items-center justify-between p-4">
 					<div className="m-auto">
 						<nav>
