@@ -11,7 +11,7 @@ function Icons(props: { icons?: string[] }) {
 			<div className="flex gap-0.5">
 				{props.icons?.map((icon) => (
 					<img
-						className="max-w-8 md:max-w-40"
+						className="max-w-8 transition-all hover:scale-120 md:max-w-40"
 						alt={icon}
 						key={icon}
 						title={icon}

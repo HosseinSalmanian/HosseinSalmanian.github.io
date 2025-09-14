@@ -8,17 +8,17 @@ import Header from './components/Header';
 function App() {
 	return (
 		<>
-			<BrowserRouter>
-				<Header />
-				<main className="md:mt-7.5">
+			<main className="m-auto max-w-300 md:mt-7.5">
+				<BrowserRouter>
+					<Header />
 					<Routes>
 						<Route path="/" element={<Summary />} />
 						<Route path="/skills" element={<Skills />} />
 						<Route path="/experiences" element={<Experiences />} />
 						<Route path="/education" element={<Educations />} />
 					</Routes>
-				</main>
-			</BrowserRouter>
+				</BrowserRouter>
+			</main>
 		</>
 	);
 }
